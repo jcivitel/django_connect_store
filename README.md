@@ -3,7 +3,7 @@
 django-project to manage all SSH-connections
 
 # to run execute:
-python.exe manage.py  makemigrations
-python.exe manage.py  migrate
-python.exe manage.py  createsuperuser
-python.exe manage.py runserver 8000
+python.exe manage.py  makemigrations<br />
+python.exe manage.py  migrate<br />
+python.exe manage.py  createsuperuser<br />
+python.exe manage.py runserver 8000<br />
