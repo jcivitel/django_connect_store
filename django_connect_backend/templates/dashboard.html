@@ -4,6 +4,7 @@
 
 {% block content %}
 <h1 class="mb-4">Dashboard für {{ user.username }}</h1>
+<a href="{% url 'add_connection' %}" class="btn btn-primary mb-3">Neue Verbindung hinzufügen</a>
 <h2 class="h4 mb-3">Zuletzt verwendete Verbindungen:</h2>
 <ul class="list-group">
 {% for connection in recent_connections %}

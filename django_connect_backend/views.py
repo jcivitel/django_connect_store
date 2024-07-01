@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+
+from .forms import ConnectionForm
 from .models import Connection, UserDashboard
 
 
@@ -18,3 +21,16 @@ def connect(request, connection_id):
     user_dashboard, created = UserDashboard.objects.get_or_create(user=request.user)
     user_dashboard.recent_connections.add(connection)
     return render(request, "connect.html", {"connection": connection})
+
+
+@login_required
+def add_connection(request):
+    if request.method == 'POST':
+        form = ConnectionForm(request.POST, user=request.user)
+        if form.is_valid():
+            connection = form.save()
+            messages.success(request, 'Verbindung erfolgreich hinzugefügt.')
+            return redirect('dashboard')
+    else:
+        form = ConnectionForm(user=request.user)
+    return render(request, 'add_connection.html', {'form': form})
