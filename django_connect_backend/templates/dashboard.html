@@ -4,15 +4,34 @@
 
 {% block content %}
 <h1 class="mb-4">Dashboard für {{ user.username }}</h1>
-<a href="{% url 'add_connection' %}" class="btn btn-primary mb-3">Neue Verbindung hinzufügen</a>
-<h2 class="h4 mb-3">Zuletzt verwendete Verbindungen:</h2>
-<ul class="list-group">
-{% for connection in recent_connections %}
-    <li class="list-group-item">
-        <a href="{% url 'connect' connection.connid %}" class="text-decoration-none">{{ connection }}</a>
-    </li>
-{% empty %}
-    <li class="list-group-item">Keine kürzlich verwendeten Verbindungen.</li>
-{% endfor %}
-</ul>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="h4 mb-3">Zuletzt verwendete Verbindungen:</h2>
+        <ul class="list-group mb-4">
+        {% for connection in recent_connections %}
+            <li class="list-group-item">
+                <a href="{{ connection.get_connection_url }}" class="text-decoration-none">{{ connection }}</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Keine kürzlich verwendeten Verbindungen.</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-md-6">
+        <h2 class="h4 mb-3">Alle Ihre Verbindungen:</h2>
+        <ul class="list-group mb-4">
+        {% for connection in all_connections %}
+            <li class="list-group-item">
+                <a href="{{ connection.get_connection_url }}" class="text-decoration-none">{{ connection }}</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Sie haben noch keine Verbindungen erstellt.</li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<a href="{% url 'add_connection' %}" class="btn btn-primary">Neue Verbindung hinzufügen</a>
 {% endblock %}
