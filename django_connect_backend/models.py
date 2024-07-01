@@ -17,4 +17,4 @@ class Connection(models.Model):
     proto = models.ForeignKey('Proto', models.DO_NOTHING)
 
     def __str__(self):
-        return self.hostname + ' using ' + self.proto.name
+        return f"{self.hostname} using {self.proto.name}"

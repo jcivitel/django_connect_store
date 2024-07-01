@@ -1,0 +1,9 @@
+services:
+  whitelabel-wiki:
+    image: jcivitell/connect_store
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      tags:
+      - "jcivitell/connect_store:${CIRCLE_BRANCH:-nobranch}"
+      - "jcivitell/connect_store:${CIRCLE_TAG:-notag}"
