@@ -1,37 +1,38 @@
 {% extends 'base.html' %}
 
-{% block title %}Dashboard - SSH-Verwaltung{% endblock %}
+{% block title %}Dashboard - SSH Connection Manager{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Dashboard für {{ user.username }}</h1>
+<h1 class="mb-4">Dashboard for {{ user.username }}</h1>
 
 <div class="row">
     <div class="col-md-6">
-        <h2 class="h4 mb-3">Zuletzt verwendete Verbindungen:</h2>
+        <h2 class="h4 mb-3">Recently used connections:</h2>
         <ul class="list-group mb-4">
         {% for connection in recent_connections %}
-            <li class="list-group-item">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
                 <a href="{{ connection.get_connection_url }}" class="text-decoration-none">{{ connection }}</a>
             </li>
         {% empty %}
-            <li class="list-group-item">Keine kürzlich verwendeten Verbindungen.</li>
+            <li class="list-group-item">No recent connections.</li>
         {% endfor %}
         </ul>
     </div>
 
     <div class="col-md-6">
-        <h2 class="h4 mb-3">Alle Ihre Verbindungen:</h2>
+        <h2 class="h4 mb-3">All your connections:</h2>
         <ul class="list-group mb-4">
         {% for connection in all_connections %}
-            <li class="list-group-item">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
                 <a href="{{ connection.get_connection_url }}" class="text-decoration-none">{{ connection }}</a>
+                <a href="{% url 'edit_connection' connection.connid %}" class="btn btn-sm btn-outline-primary">Edit</a>
             </li>
         {% empty %}
-            <li class="list-group-item">Sie haben noch keine Verbindungen erstellt.</li>
+            <li class="list-group-item">You haven't created any connections yet.</li>
         {% endfor %}
         </ul>
     </div>
 </div>
 
-<a href="{% url 'add_connection' %}" class="btn btn-primary">Neue Verbindung hinzufügen</a>
+<a href="{% url 'add_connection' %}" class="btn btn-primary">Add New Connection</a>
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.shortcuts import render
 
 from .forms import ConnectionForm
@@ -31,3 +31,16 @@ def add_connection(request):
     else:
         form = ConnectionForm(user=request.user)
     return render(request, "add_connection.html", {"form": form})
+
+@login_required
+def edit_connection(request, connection_id):
+    connection = get_object_or_404(Connection, pk=connection_id, user=request.user)
+    if request.method == 'POST':
+        form = ConnectionForm(request.POST, instance=connection)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Connection updated successfully.')
+            return redirect('dashboard')
+    else:
+        form = ConnectionForm(instance=connection)
+    return render(request, 'edit_connection.html', {'form': form, 'connection': connection})
