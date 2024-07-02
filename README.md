@@ -1,9 +1,9 @@
 [![](https://img.shields.io/maintenance/yes/2024)](https://github.com/jcivitel/)
 [![Static Badge](https://img.shields.io/badge/GitHub-jcivitell-green?logo=github)](https://github.com/jcivitel/django_connect_store)
 [![GitHub Repo stars](https://img.shields.io/github/stars/jcivitel/django_connect_store)](https://github.com/jcivitel/django_connect_store)
-[![Docker Pulls](https://img.shields.io/docker/pulls/jcivitell/django_connect_store?logo=docker)](https://hub.docker.com/r/jcivitell/django_connect_store)
-[![Docker Stars](https://img.shields.io/docker/stars/jcivitell/django_connect_store?logo=docker)](https://hub.docker.com/r/jcivitell/django_connect_store)
-[![Docker Image Size](https://img.shields.io/docker/image-size/jcivitell/django_connect_store/latest?logo=docker)](https://hub.docker.com/r/jcivitell/django_connect_store)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jcivitell/connect_store?logo=docker)](https://hub.docker.com/r/jcivitell/connect_store)
+[![Docker Stars](https://img.shields.io/docker/stars/jcivitell/connect_store?logo=docker)](https://hub.docker.com/r/jcivitell/connect_store)
+[![Docker Image Size](https://img.shields.io/docker/image-size/jcivitell/connect_store/latest?logo=docker)](https://hub.docker.com/r/jcivitell/connect_store)
 
 
 # Connection Manager
