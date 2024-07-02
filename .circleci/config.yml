@@ -11,7 +11,8 @@ workflows:
             branches:
               only: /^master*/
       - bots:
-           filters:
+          filters:
+            branches:
               only: /^dependabot*/
 jobs:
   build:
