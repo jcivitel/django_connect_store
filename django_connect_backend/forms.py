@@ -1,11 +1,12 @@
 from django import forms
+
 from .models import Connection, Proto
 
 
 class ConnectionForm(forms.ModelForm):
     class Meta:
         model = Connection
-        fields = ["hostname", "port", "proto"]
+        fields = ["name", "hostname", "port", "proto"]
         widgets = {"port": forms.NumberInput(attrs={"min": 1, "max": 65535})}
 
     def __init__(self, *args, **kwargs):
