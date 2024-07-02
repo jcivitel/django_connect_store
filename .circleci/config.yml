@@ -13,7 +13,7 @@ workflows:
       - bots:
           filters:
             branches:
-              only: /^dependabot*/
+              only: /^dependabot/pip/*/
 jobs:
   build:
     working_directory: ~/app
