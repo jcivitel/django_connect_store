@@ -14,14 +14,15 @@ class Proto(models.Model):
 
 class Connection(models.Model):
     connid = models.IntegerField(primary_key=True, auto_created=True)
+    name = models.CharField(max_length=200, blank=True)
     hostname = models.CharField(max_length=200)
     port = models.IntegerField()
-    proto = models.ForeignKey("Proto", models.DO_NOTHING)
+    proto = models.ForeignKey('Proto', models.DO_NOTHING)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     last_used = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.hostname} using {self.proto.name}"
+        return self.name if self.name else f"{self.hostname}:{self.port}"
 
     def get_connection_url(self):
         return f"{self.proto.url_scheme}://{self.hostname}:{self.port}"
