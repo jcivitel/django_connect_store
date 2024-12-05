@@ -31,8 +31,8 @@ quickly. It provides a user-friendly dashboard for managing connections and quic
 1. Clone the repository:
 
 ```
-    git clone https://github.com/jcivitel/django_connect_store.git
-    cd ssh-connection-manager
+git clone https://github.com/jcivitel/django_connect_store.git
+cd ssh-connection-manager
 ```
 
 2. Create a virtual environment and activate it:
@@ -51,7 +51,7 @@ pip install -r requirements.txt
 4. Run database migration:
 
 ```
-    python manage.py migrate
+python manage.py migrate
 ```
 
 ## Usage
