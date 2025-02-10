@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 /django_connect_backend/migrations
 /.idea
+/utils

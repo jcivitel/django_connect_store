@@ -1,8 +1,11 @@
 from django.urls import path
+from django.urls import re_path
+from django.views.generic.base import RedirectView
 
 from . import views
 
 urlpatterns = [
+    re_path(r'^$', RedirectView.as_view(url='dashboard', permanent=True)),
     path("dashboard/", views.dashboard, name="dashboard"),
     path("add-connection/", views.add_connection, name="add_connection"),
     path(

@@ -30,7 +30,7 @@ def add_connection(request):
     if request.method == "POST":
         form = ConnectionForm(request.POST, user=request.user)
         if form.is_valid():
-            connection = form.save()
+            form.save()
             messages.success(request, "Verbindung erfolgreich hinzugefügt.")
             return redirect("dashboard")
     else:
@@ -90,7 +90,6 @@ def import_putty_connections(request):
                     name=protocol.upper(),
                     defaults={"pref": protocol.lower(), "url_scheme": protocol.lower()},
                 )
-
                 Connection.objects.get_or_create(
                     hostname=hostname,
                     port=port,
