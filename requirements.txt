@@ -9,4 +9,4 @@ packaging==26.2
 pathspec==1.0.4
 platformdirs==4.9.6
 sqlparse==0.5.5
-tzdata==2026.1
+tzdata==2026.2
