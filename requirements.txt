@@ -3,7 +3,7 @@ black==26.5.1
 click==8.4.2
 colorama==0.4.6
 Django==6.1
-djangorestframework==3.17.1
+djangorestframework==3.18.0
 mypy-extensions==1.1.0
 packaging==26.3
 pathspec==1.1.1
